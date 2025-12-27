@@ -1,0 +1,29 @@
+package com.example.myapplication
+
+import app.cash.paparazzi.DeviceConfig
+import app.cash.paparazzi.Paparazzi
+import com.google.testing.junit.testparameterinjector.TestParameter
+import com.google.testing.junit.testparameterinjector.TestParameterInjector
+import org.junit.Rule
+import org.junit.Test
+import org.junit.runner.RunWith
+
+@RunWith(TestParameterInjector::class)
+class ResourcesTest(
+  @TestParameter locale: Locale
+) {
+  @get:Rule
+  val paparazzi = Paparazzi(
+    deviceConfig = DeviceConfig.PIXEL_6_PRO.copy(locale = locale.tag),
+    theme = "android:Theme.Material.Light.NoActionBar"
+  )
+
+  @Test
+  fun compose() {
+    paparazzi.snapshot { BookReviewScreen() }
+  }
+
+  enum class Locale(val tag: String?) {
+    Default(null)
+  }
+}

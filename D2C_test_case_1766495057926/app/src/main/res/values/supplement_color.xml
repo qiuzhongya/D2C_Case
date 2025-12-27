@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+    <color name="ButtonBGColorDisable">#26161823</color>
+    <color name="ConstButtonBGColorDisable">#26161823</color>
+    <color name="ButtonMaskColorPress">#0D000000</color>
+    <color name="CapsuleButtonBGColorDisable">#C0161823</color>
+    <color name="CapsuleButtonBGColorSecondaryMedium">#33000000</color>
+    <color name="CapsuleButtonBGColorSecondarySmall">#0DFFFFFF</color>
+    <color name="CapsuleButtonBGColorSecondaryInferiorSmall">#0D000000</color>
+    <color name="BGPanelReverse">#F8F8F8</color>
+    <color name="PanelConstDivider">#1F161823</color>
+    <color name="ButtonFG">#0D000000</color>
+    <color name="ButtonFGReverse">#0D000000</color>
+
+    <color name="BGCard3Reverse">#00FFFFFF</color>
+
+    <color name="ConstSwitchBG">#33e088</color>
+
+    <color name="BtnFgDisabled">#57FFFFFF</color>
+
+    <color name="LineSecondary2Reverse">#80161823</color>
+
+    <color name="RadioAlpha">#A8FFFFFF</color>
+    <color name="RadioAlphaReverse">#A8FFFFFF</color>
+
+    <color name="BottomTabBackground2">#FF1E1E1E</color>
+    <color name="BottomTabBackground3">#FF202020</color>
+
+    <color name="LuckyConstTextInverse">#FFFFFF</color>
+    <color name="LuckyConstTextInverse5">#57FFFFFF</color>
+    <color name="LuckyToastDefault">#393B44</color>
+</resources>
