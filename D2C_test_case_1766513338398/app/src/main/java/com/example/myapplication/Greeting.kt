@@ -86,11 +86,12 @@ fun VideoPostScreen() {
                                 .padding(bottom = 12.dp)
                                 .size(88.dp, 28.dp)
                                 .background(
-                                    color = Color(0xFF444444).copy(alpha = 0.7f),
+                                    color = Color(0xFF444444).copy(alpha = 0.1f),
                                     shape = RoundedCornerShape(100.dp)
                                 ),
                             contentAlignment = Alignment.Center
                         ) {
+                            /*
                             Text(
                                 text = "选封面",
                                 style = TextStyle(
@@ -99,6 +100,7 @@ fun VideoPostScreen() {
                                     color = Color.White
                                 )
                             )
+                            */
                         }
                     }
                 }
@@ -107,8 +109,10 @@ fun VideoPostScreen() {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .height(100.dp)
                         .padding(horizontal = 16.dp, vertical = 20.dp)
                 ) {
+                    /*
                     BasicTextField(
                         value = "添加标题",
                         onValueChange = {},
@@ -120,6 +124,7 @@ fun VideoPostScreen() {
                         modifier = Modifier.fillMaxWidth()
                     )
                     Spacer(modifier = Modifier.height(12.dp))
+                     */
                     BasicTextField(
                         value = "",
                         onValueChange = {},
@@ -156,17 +161,19 @@ fun VideoPostScreen() {
                     ) {
                         FeatureItem(iconRes = R.drawable.ic_hashtag_small_td, text = "话题")
                         Spacer(modifier = Modifier.width(20.dp))
-                        FeatureItem(iconRes = R.drawable.ic_at_small_td, text = "好友")
+                        FeatureItem(iconRes = R.drawable.ic_at_small_td, text = "朋友")
                         Spacer(modifier = Modifier.width(20.dp))
-                        FeatureItem(iconRes = R.drawable.ic_template, text = "模板") // Using placeholder for template group
-                        Spacer(modifier = Modifier.weight(1f))
+                        Spacer(modifier = Modifier.weight(5f))
+                        //FeatureItem(iconRes = R.drawable.ic_template, text = "模板") // Using placeholder for template group
+                        //Spacer(modifier = Modifier.weight(1f))
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Image(
                                 painter = painterResource(id = R.drawable.ic_expand),
                                 contentDescription = "Expand",
-                                modifier = Modifier.size(16.dp)
+                                modifier = Modifier.size(32.dp)
                             )
                             Spacer(modifier = Modifier.width(4.dp))
+                            /*
                             Text(
                                 text = "展开",
                                 style = TextStyle(
@@ -174,6 +181,7 @@ fun VideoPostScreen() {
                                     color = Color(0xFF161823)
                                 )
                             )
+                            */
                         }
                     }
 
@@ -187,8 +195,8 @@ fun VideoPostScreen() {
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         SuggestionChip(text = "卫星桥下")
-                        SuggestionChip(text = "知村社区居民活动…")
-                        SuggestionChip(text = "百万庄园（卫星大厦店）")
+                        SuggestionChip(text = "实地拍摄")
+                        SuggestionChip(text = "享受这悠闲时光")
                     }
                 }
 
@@ -201,20 +209,30 @@ fun VideoPostScreen() {
                     SettingsItem(
                         iconRes = R.drawable.ic_pin_small_dt,
                         title = "你在哪里",
-                        subtitle = "卫星桥下",
+                        //subtitle = "卫星桥下",
                         rightContent = {
                             // Arrow handled by item
                         },
                         showSubtitleInTag = true
                     )
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .horizontalScroll(rememberScrollState()),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        SuggestionLocation(text = "卫星桥下")
+                        SuggestionLocation(text = "知村社区居民活动...")
+                        SuggestionLocation(text = "百万庄园（卫星")
+                    }
                     
                     // Add Element
                     SettingsItem(
                         iconRes = R.drawable.ic_s_s_module,
-                        title = "添加一个元素",
+                        title = "添加标签",
                         rightContent = {
                             Text(
-                                text = "地理位置、商品、小程序等",
+                                text = "商品、影视综艺等",
                                 style = TextStyle(
                                     fontSize = 14.sp,
                                     color = Color(0xFF161823).copy(alpha = 0.34f)
@@ -270,6 +288,7 @@ fun TopBar() {
                     modifier = Modifier.size(24.dp)
                 )
             }
+            /*
             Text(
                 text = "标题栏",
                 style = TextStyle(
@@ -279,6 +298,7 @@ fun TopBar() {
                     textAlign = TextAlign.Center
                 )
             )
+            */
             Row(verticalAlignment = Alignment.CenterVertically) {
                 // Empty view to balance layout if needed, or specific right icons
                 Spacer(modifier = Modifier.width(68.dp)) // Approximate width of left buttons
@@ -336,6 +356,33 @@ fun SuggestionChip(text: String) {
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Medium,
                     color = Color(0xFF161823).copy(alpha = 0.6f)
+                )
+            )
+        }
+    }
+}
+
+@Composable
+fun SuggestionLocation(text: String) {
+    Box(
+        modifier = Modifier
+            .height(36.dp)
+            .background(
+                color = Color(0xFF161823).copy(alpha = 0.05f),
+                shape = RoundedCornerShape(8.dp)
+            )
+            .padding(horizontal = 12.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            // Assuming hashtag icon is part of suggestion or text starts with # in data
+            // Design shows icon in chip
+            Text(
+                text = text,
+                style = TextStyle(
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color(0xFF161823)
                 )
             )
         }

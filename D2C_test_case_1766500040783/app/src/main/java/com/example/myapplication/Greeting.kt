@@ -220,7 +220,7 @@ fun StatusBar() {
             ),
             modifier = Modifier.width(54.dp)
         )
-        
+
         // Status Icons
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -341,9 +341,10 @@ fun ActionRow() {
 
 @Composable
 fun ActionItem(iconId: Int, text: String, iconSize: androidx.compose.ui.unit.Dp, width: androidx.compose.ui.unit.Dp) {
-    Column(
-        horizontalAlignment = Alignment.Start,
-        modifier = Modifier.width(width)
+    Row(
+        modifier = Modifier.width(width),
+        verticalAlignment = Alignment.Top,
+        horizontalArrangement = Arrangement.Start
     ) {
         Image(
             painter = painterResource(id = iconId),
@@ -377,9 +378,9 @@ fun ProgressRow() {
             contentDescription = null,
             modifier = Modifier.size(32.dp)
         )
-        
+
         Spacer(modifier = Modifier.width(4.dp))
-        
+
         // Progress Bar
         Box(
             modifier = Modifier
@@ -394,20 +395,32 @@ fun ProgressRow() {
                     .height(3.dp)
                     .background(Color.White.copy(alpha = 0.12f), RoundedCornerShape(2.dp))
             )
-            
+            Box(
+                modifier = Modifier
+                    .offset(x = 145.dp) // 190 - thumb radius/2 approx
+                    .size(4.dp)
+                    .background(Color.White, CircleShape)
+            )
             // Active Track
             Box(
                 modifier = Modifier
-                    .width(190.dp) // Mock progress width
+                    .offset(x = 145.dp)
+                    .width(23.dp) // Mock progress width
                     .height(3.dp)
                     .background(Color.White.copy(alpha = 0.85f), RoundedCornerShape(2.dp))
             )
-            
+
             // Thumb (Thumb position calculated to match active track end)
             Box(
                 modifier = Modifier
-                    .offset(x = 186.dp) // 190 - thumb radius/2 approx
+                    .offset(x = 168.dp) // 190 - thumb radius/2 approx
                     .size(7.dp)
+                    .background(Color.White, CircleShape)
+            )
+            Box(
+                modifier = Modifier
+                    .offset(x = 202.dp) // 190 - thumb radius/2 approx
+                    .size(4.dp)
                     .background(Color.White, CircleShape)
             )
         }
